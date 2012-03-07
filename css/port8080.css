@@ -1,0 +1,243 @@
+/* --- CSS for Port8080.net --- */
+/* --- Daniel Patrick Williams --- */
+/* --- dwilliams@port8080.net --- */
+
+/* ### Page Layout ### */
+#page_container {
+  width: 791px;
+  text-align: left;
+  margin: 0 auto;
+  border: 1px solid #cccccc;
+  background-color: #ffffff;
+  font-family: monospace;
+}
+
+#page_header {
+  text-align: center;
+  border-bottom: 1px solid #cccccc;
+}
+
+#page_main {
+  float: right;
+  width: 550px;
+  margin-top: 5px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+}
+
+#page_sidebar {
+  float: left;
+  width: 230px;
+  margin-bottom: 5px;
+  border-right: 1px solid #cccccc;
+  border-bottom: 1px solid #cccccc;
+}
+
+#page_footer {
+  clear: both;
+  text-align: center;
+  border-top: 1px solid #cccccc;
+  color: #999999;
+}
+
+#validated {
+  margin-left: auto;
+  margin-top: 5px;
+  text-align: center;
+}
+
+/* ### Page Formatting ### */
+/* --- Home Class --- */
+.main_entry {
+  border: 1px solid #cccccc;
+  margin-bottom: 5px;
+  padding: 5px 5px 5px 5px;
+}
+
+.entry_top_image {
+  float: left;
+}
+
+.entry_title {
+  float: right;
+  text-align: right;
+  font-size: 1.5em;
+}
+
+.entry_post {
+  clear: both;
+}
+
+.entry_date {
+  text-align: right;
+}
+
+/* --- Machine Class --- */
+.mech_entry {
+}
+
+.mech_entry_name {
+  float: left;
+  width: 118px;
+  height: 90px;
+  border-bottom: 1px solid #cccccc;
+  border-right: 1px solid #cccccc;
+  padding-top: 5px;
+  padding-right: 5px;
+  padding-left: 5px;
+  padding-bottom: 5px;
+}
+
+.mech_entry_desc {
+  float: left;
+  width: 309px;
+  height: 90px;
+  border-bottom: 1px solid #cccccc;
+  border-right: 1px solid #cccccc;
+  padding-top: 5px;
+  padding-right: 5px;
+  padding-left: 5px;
+  padding-bottom: 5px;
+}
+
+.mech_entry_thumb {
+  float: left;
+  width: 100px;
+  height: 100px;
+  border-bottom: 1px solid #cccccc;
+  border-right: 1px solid #cccccc;
+}
+
+.mech_detail_name {
+  float: right;
+  border-bottom: 1px solid #cccccc;
+  font-size: 1.5em;
+}
+
+.mech_detail_thumb {
+  float: left;
+  padding-right: 5px;
+  padding-bottom: 5px;
+}
+
+.mech_detail_desc {
+  clear: right;
+  border-bottom: 1px solid #cccccc;
+}
+
+.mech_detail_stats {
+  clear: both;
+  border-bottom: 1px solid #cccccc;
+}
+
+.mech_detail_gallery {
+  clear: both;
+}
+
+/* --- Projects Class --- */
+.proj_entry {
+  border: 1px solid #cccccc;
+  margin-bottom: 5px;
+  padding: 5px 5px 5px 5px;
+}
+
+.proj_entry_photo {
+  float: left;
+  width: 150px;
+  margin-right: 5px;
+}
+
+.proj_entry_title {
+  float: right;
+  text-align: right;
+  font-size: 1.5em;
+}
+
+.proj_entry_desc {
+  clear: right;
+}
+
+.proj_step_back {
+  float: left;
+}
+
+.proj_step_forw {
+  float: right;
+}
+
+/* --- ?? Class --- */
+.gallery {
+  width: 445px;
+  margin-left: 10px;
+}
+
+.gallery_row {
+  margin-top: 5px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #cccccc;
+}
+
+.gallery_image {
+  float: left;
+  margin-right: 5px;
+}
+
+.gallery_desc {
+}
+
+.gallery_row_end {
+  clear: both;
+}
+
+a img,:link img,:visited img {
+  border: none;
+}
+
+/* ### Text Formatting ### */
+a {
+  text-decoration: none;
+}
+
+.sidebar_menu {
+}
+
+.menu_header {
+  padding-left: 5px;
+  background-color: #33ff33;
+}
+
+.menu_body {
+  padding: 5px 5px 5px 5px;
+}
+
+.sidebar_select {
+  background-color: #ff3333;
+}
+
+/* ### Element Formatting ### */
+li {
+  margin-left: -20px; /* hack to keep the boxes from breaking while slimming
+                         the list width */
+  list-style-image: url(./images/listmarker.png);
+}
+
+.thumbnail_100 {
+  width: 100px;
+}
+
+.thumbnail_200 {
+  width: 200px;
+}
+
+.gallery_thumbnail {
+  float: left;
+  width: 150px;
+}
+
+#twitter_div {
+}
+
+.clear_both {
+  clear: both;
+}
+

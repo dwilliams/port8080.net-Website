@@ -1,0 +1,41 @@
+<?php
+  /*** 
+    *  page_body_sidebar.php
+    *  2009.03.08
+    *  http://www.port8080.net/
+    *  Daniel Patrick Williams
+    *  dwilliams@port8080.net
+   ***/
+   
+   // Navigation Menu for the home controller (page)
+  
+  echo '    <div id="page_sidebar">' . "\n";
+  echo '      <div class="sidebar_menu">' . "\n";
+  echo '        <div class="menu_header">' . "\n";
+  echo '          T3H NAVAGATRON:' . "\n";
+  echo '        </div>' . "\n";
+  echo '        <div class="menu_body">' . "\n";
+  // START MENU LIST
+  $array_menu = array('~', // make this work: <div class="sidebar_select">
+                      '<a href="http://webmail.port8080.net">Webmail</a>',
+                      '<a href="http://calendar.port8080.net">Calendar</a>',
+                      '<a href="' . base_url() . 'machines.html">Machines of Port8080</a>',
+                      '<a href="' . base_url() . 'mylist/mylist.htm">AniDB MyList Export</a>',
+                      '<a href="http://headphones.kerneldoom.com">Headphone Picture Gallery</a>');
+  echo ul($array_menu);
+  // END MENU LIST
+  echo '        </div>' . "\n";
+  echo '      </div>' . "\n";
+  echo '      <div class="sidebar_twitter">' . "\n";
+  // TWITTER UPDATES HERE:
+  $twitter_url = "http://twitter.com/statuses/user_timeline/$username.xml?count=1";
+  $buffer = file_get_contents($twitter_url);
+  $xml = new SimpleXMLElement($buffer);
+  $status_item = $xml -> status;
+  $status =  $status_item -> text;
+  // END TWITTER UPDATES
+  echo '      </div>' . "\n";
+  echo '    </div>' . "\n";
+
+/* DPW */
+/* END OF CODE */

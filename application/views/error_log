@@ -1,0 +1,1 @@
+[08-Mar-2009 19:44:17] PHP Fatal error:  Call to undefined function  base_url() in /home7/gaidefor/public_html/port8080-net/system/application/views/page_header.php on line 19
