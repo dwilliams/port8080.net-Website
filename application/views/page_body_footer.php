@@ -20,6 +20,7 @@
   echo '      <img src="http://www.w3.org/Icons/valid-xhtml10-blue" alt="Valid XHTML 1.0 Strict" height="31" width="88" />' . "\n";
   echo '    </a>' . "\n";
   echo '  </div>' . "\n";
+  echo '<script src="' . base_url() . 'lib/jquery.js"></script>';
   echo '</body>' . "\n";
   echo '</html>' . "\n";
 

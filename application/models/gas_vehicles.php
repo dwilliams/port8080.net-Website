@@ -30,7 +30,7 @@
       if($id_vehicle > 0) {
         $this->db->where('id', $id_vehicle);
       }
-      $this->db->order_by('id', 'asc');
+      $this->db->order_by('id', 'desc');
 
       $query = $this->db->get();
       return $query->result_array();

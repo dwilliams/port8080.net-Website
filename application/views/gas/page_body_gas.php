@@ -1,7 +1,7 @@
 <?php
   /*** 
     *  page_body_gas.php
-    *  2010.02.10
+    *  2012.06.03
     *  http://www.port8080.net/
     *  Daniel Patrick Williams
     *  dwilliams@port8080.net
@@ -13,12 +13,21 @@
   // The array is called $array_fills[##][...]
   
   // Load up the java script before drawing the graph
-  echo '    <script src="' . base_url() . 'lib/dygraph-combined.js" type="text/javascript" charset="utf-8"></script>' . "\n";
+  echo '<!--[if lt IE 9]><script language="javascript" type="text/javascript" src="excanvas.js"></script><![endif]-->' . "\n";
+  echo '    <script language="javascript" type="text/javascript" src="' . base_url() . 'lib/jqplot/jquery.min.js"></script>' . "\n";
+  echo '    <script language="javascript" type="text/javascript" src="' . base_url() . 'lib/jqplot/jquery.jqplot.min.js"></script>' . "\n";
+  echo '    <link rel="stylesheet" type="text/css" href="jquery.jqplot.css" />' . "\n";
+  echo '    <script type="text/javascript" src="' . base_url() . 'lib/jqplot/plugins/jqplot.dateAxisRenderer.min.js"></script>' . "\n";
+  echo '    <script type="text/javascript" src="' . base_url() . 'lib/jqplot/plugins/jqplot.canvasTextRenderer.min.js"></script>' . "\n";
+  echo '    <script type="text/javascript" src="' . base_url() . 'lib/jqplot/plugins/jqplot.canvasAxisTickRenderer.min.js"></script>' . "\n";
+  echo '    <script type="text/javascript" src="' . base_url() . 'lib/jqplot/plugins/jqplot.categoryAxisRenderer.min.js"></script>' . "\n";
+  echo '    <script type="text/javascript" src="' . base_url() . 'lib/jqplot/plugins/jqplot.pointLabels.min.js"></script>' . "\n";
+  echo '    <script type="text/javascript" src="' . base_url() . 'lib/jqplot/plugins/jqplot.cursor.min.js"></script>' . "\n";
   
   // Draw the main page display
   echo '    <div id="page_main">' . "\n";
     // Graph
-  echo '      <div id="gas_graph_line" style="width: 520px; height: 250px;"></div>' . "\n";
+  echo '      <div id="gas_graph_line" style="margin-left: 20px; width: 500px; height: 300px;"></div>' . "\n";
     // Tables
   foreach($array_vehicles as $vehicle) {
     echo '      ' . $vehicle['name'] . ' - ' . $vehicle['make'] . ' ' . $vehicle['model'] . ' (' . $vehicle['color'] . ')' . "\n";
@@ -45,26 +54,41 @@
   }
   echo '    </div>' . "\n";
   
-  // Draw the graph into the place holder div
+  // New graphing fun
   echo '<script type="text/javascript">' . "\n";
-  echo 'g = new Dygraph(' . "\n";
-  echo '' . "\n";
-  echo '  // containing div' . "\n";
-  echo '  document.getElementById("gas_graph_line"),' . "\n";
-  echo '' . "\n";
-  echo '  // CSV or path to a CSV file.' . "\n";
-  echo '  "Date,MPG\n" +' . "\n";
-  // Need to figure out how to massage the data for the graph
-  //  Set to just show the celica (id = 1)
-  foreach($array_fills[1] as $fillup) {
-    echo '  "' . $fillup['date'] . ',' . round($fillup['distance'] / $fillup['volume'], 2) . '\n" +' . "\n";
+  echo '$(document).ready(function(){' . "\n";
+  foreach($array_vehicles as $vehicle) {
+    if(!empty($array_fills[$vehicle['id']])) {
+      echo 'var data' . $vehicle['id'] . ' = [';
+      foreach($array_fills[$vehicle['id']] as $fillup) {
+        echo '[\'' . $fillup['date'] . '\', ' . round($fillup['distance'] / $fillup['volume'], 2) . '],';
+      }
+      echo '];' . "\n";
+    }
   }
-  echo '  "\n",' . "\n";
-  echo '  {' . "\n";
-  echo '    pixelsPerXLabel: 30' . "\n";
-  echo '  }' . "\n";
-  echo '' . "\n";
-  echo ');' . "\n";
+  //echo '  var plot1 = $.jqplot("gas_graph_line", [data3, data2, data1, ], {' . "\n";
+  
+  echo '  var plot1 = $.jqplot("gas_graph_line", [';
+  foreach($array_vehicles as $vehicle) {
+    if(!empty($array_fills[$vehicle['id']])) {
+      echo 'data' . $vehicle['id'] . ', ';
+    }
+  }
+  echo '], {' . "\n";
+  echo '    title:"Default Date Axis",' . "\n";
+  echo '    axes:{xaxis:{renderer:$.jqplot.DateAxisRenderer}},' . "\n";
+  echo '    seriesDefaults: {' . "\n";
+  echo '      showMarker:false,' . "\n";
+  echo '      pointLabels: { show:true }' . "\n";
+  echo '    },' . "\n";
+  echo '    cursor: {' . "\n";
+  echo '      show: true,' . "\n";
+  echo '      zoom: true,' . "\n";
+  echo '      showTooltip: false' . "\n";
+  echo '    },' . "\n";
+  echo '  });' . "\n";
+  
+  echo '});' . "\n";
   echo '</script>' . "\n";
 
 /* DPW */
