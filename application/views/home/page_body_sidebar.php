@@ -1,13 +1,32 @@
 <?php
   /*** 
     *  page_body_sidebar.php
-    *  2009.03.08
+    *  2012.06.03
     *  http://www.port8080.net/
     *  Daniel Patrick Williams
     *  dwilliams@port8080.net
    ***/
    
-   // Navigation Menu for the home controller (page)
+  // Navigation Menu for the home controller (page)
+   
+  // START MENU LIST
+  $array_menu = array(anchor(base_url(), '~', array()),
+                      anchor('http://webmail.port8080.net/', 'Webmail', array()),
+                      'Projects of PORT8080' => array(anchor(site_url(array('projects', 'project1')), 'Tube Headphone Amp', array()),
+                                                      anchor(site_url(array('projects', 'project2')), 'Sconce Lamp', array()),
+                                                      anchor(site_url(array('projects', 'project3')), 'HA-STS', array()),
+                                                      anchor(site_url(array('projects', 'project4')), 'Harley / Buell ECM', array()),
+                                                      anchor(site_url(array('projects', 'project5')), 'FTTS Tuner Pre-2012', array()),
+                                                      anchor(site_url(array('projects', 'project6')), 'FTTS Tuner 2012-', array())),
+                      anchor('http://photography.port8080.net/', 'Photography Attemps', array()),
+                      anchor(site_url(array('petrol')), 'Gas Milage', array()),
+                      anchor('http://headphones.kerneldoom.com', 'Headphone Picture Gallery', array()),
+                      anchor('/home/archive/', 'Post Archive'));
+  // END MENU LIST
+  
+  // START LINK LIST
+  $array_link = array(anchor('http://www.hackaday.com/', 'Hackaday', array()));
+  // END LINK LIST
   
   echo '    <div id="page_sidebar">' . "\n";
   echo '      <div class="sidebar_menu">' . "\n";
@@ -15,18 +34,14 @@
   echo '          T3H NAVAGATRON:' . "\n";
   echo '        </div>' . "\n";
   echo '        <div class="menu_body">' . "\n";
-  // START MENU LIST
-  $array_menu = array(anchor(base_url(), '~', array()),
-                      anchor('http://webmail.port8080.net/', 'Webmail', array()),
-                      anchor(site_url(array('home','calendar')), 'Calendar', array()),
-                      anchor('/home/archive/', 'Post Archive'),
-                      anchor(site_url(array('machines')),'Machines of PORT8080', array()),
-                      anchor(site_url(array('projects')),'Projects of PORT8080', array()),
-                      anchor(base_url() . 'coppermine/', 'Picture Gallery', array()),
-                      anchor(base_url() . 'mylist/mylist.htm', 'AniDB MyList Export', array()),
-                      anchor('http://headphones.kerneldoom.com', 'Headphone Picture Gallery', array()));
   echo ul($array_menu);
-  // END MENU LIST
+  // --- Put a header here ---
+  echo '        </div>';
+  echo '        <div class="menu_header">' . "\n";
+  echo '          GOOD LINKS:' . "\n";
+  echo '        </div>' . "\n";
+  echo '        <div class="menu_body">' . "\n";
+  echo ul($array_link);
   echo '        </div>' . "\n";
   echo '      </div>' . "\n";
   echo '      <div class="sidebar_menu">' . "\n";
@@ -44,7 +59,7 @@
   echo '       </div>' . "\n";
   echo '       <script type="text/javascript" src="http://twitter.com/javascripts/blogger.js">' . "\n";
   echo '        </script>' . "\n";
-  echo '        <script type="text/javascript" src="http://twitter.com/statuses/user_timeline/poostickd.json?callback=twitterCallback2&amp;count=3">' . "\n";
+  echo '        <script type="text/javascript" src="http://twitter.com/statuses/user_timeline/thefbus.json?callback=twitterCallback2&amp;count=3">' . "\n";
   echo '        </script>' . "\n";
   echo '      </div>' . "\n";
   echo '    </div>' . "\n";
