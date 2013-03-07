@@ -5,7 +5,7 @@
     *  http://www.port8080.net
     *  Daniel Patrick Williams
     *  dwilliams@port8080.net
-    *  Updated: 2010.08.06
+    *  Updated: 2013.03.07
    ***/
 
   // Gas Controller for port8080
@@ -14,6 +14,9 @@
     // Default Constructor
     function __construct() {
             parent::__construct();
+            
+            // Load up needed things
+            $this->config->load('petrol');
     }
     // Default function to run when controller is loaded
     function index() {
@@ -115,7 +118,7 @@
       $num_distance = $this->input->post('ins_distance');
       //echo $id_ui . ':' . $id_key . ':' . $id_vehicle . ':' . $num_cost . ':' . $num_volume . ':' . $num_distance . "<br />\n";
       // Check key (need to move this to the database. But who cares?)
-      if($id_key != '??') {
+      if($id_key != $this->config->item('key', 'petrol')) {
         // redirect to form on error
         // This should really be made to come from a config file...
         if($id_ui == 'm') {
