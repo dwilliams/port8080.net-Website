@@ -19,6 +19,7 @@
   $array_menu = array(anchor(base_url(), '~', array()),
                       anchor('http://webmail.port8080.net/', 'Webmail', array()),
                       anchor(site_url(array('home','calendar')), 'Calendar', array()),
+                      anchor('/home/archive/', 'Post Archive'),
                       anchor(site_url(array('machines')),'Machines of PORT8080', array()),
                       anchor(site_url(array('projects')),'Projects of PORT8080', array()),
                       anchor(base_url() . 'coppermine/', 'Picture Gallery', array()),

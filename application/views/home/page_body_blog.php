@@ -1,7 +1,7 @@
 <?php
   /*** 
     *  page_body_main.php
-    *  2009.03.08
+    *  2011.12.26
     *  http://www.port8080.net/
     *  Daniel Patrick Williams
     *  dwilliams@port8080.net
@@ -16,7 +16,10 @@
   foreach ($array_posts as $post) {
     echo '      <div class="main_entry">' . "\n";
     echo '        <div class="entry_title">' . "\n";
-    echo '          ' . $post['post_title'] . "\n"; // post title: use date for front page
+    echo '          ';
+     // post title: use date for front page
+    echo anchor('/home/post/' . $post['id'], $post['post_title']);
+    echo "\n";
     echo '        </div>' . "\n";
     echo '        <div class="entry_post">' . "\n";
     echo '          ' . $post['post_body'] . "\n";  // post body

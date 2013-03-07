@@ -8,7 +8,7 @@
    ***/
   
   echo '    <div id="page_footer">' . "\n";
-  echo '      Daniel Patrick Williams - www.port8080.net - <!-- something goes here -->' . "\n";
+  echo '      Daniel Patrick Williams - www.port8080.net - Rendered in <strong>{elapsed_time}</strong> seconds' . "\n";
   echo '    </div>' . "\n";
   echo '  </div>' . "\n";
   echo '  <div id="validated">' . "\n";
