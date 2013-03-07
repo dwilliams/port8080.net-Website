@@ -18,7 +18,7 @@
                                                       anchor(site_url(array('projects', 'project4')), 'Harley / Buell ECM', array()),
                                                       anchor(site_url(array('projects', 'project5')), 'FTTS Tuner Pre-2012', array()),
                                                       anchor(site_url(array('projects', 'project6')), 'FTTS Tuner 2012-', array())),
-                      anchor('http://photography.port8080.net/', 'Photography Attemps', array()),
+                      anchor('http://photography.port8080.net/', 'Photography Attempts', array()),
                       anchor(site_url(array('petrol')), 'Gas Milage', array()),
                       anchor('http://headphones.kerneldoom.com', 'Headphone Picture Gallery', array()),
                       anchor('/home/archive/', 'Post Archive'));
