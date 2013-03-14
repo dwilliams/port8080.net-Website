@@ -24,6 +24,8 @@
     }
 
     // Pull a number of entries from the table
+    // Probably should do some optimization to dodge the expence of the
+    //   order by, but my data base should never grow that big...
     function get_last_fillups($id_vehicle, $num_entries) {
       $this->db->select('vehicle_id, date, cost, volume, distance');
       $this->db->from('gas_fillups');
@@ -43,6 +45,7 @@
       $this->distance = $num_distance;
 
       $this->db->insert('gas_fillups', $this);
+      return $this->db->insert_id();
     }
   }
 
