@@ -163,7 +163,7 @@ $config['rest_database_group'] = 'default';
 |	'keys'
 |
 */
-$config['rest_keys_table'] = 'keys';
+$config['rest_keys_table'] = 'rest_keys';
 
 /*
 |--------------------------------------------------------------------------
@@ -175,7 +175,7 @@ $config['rest_keys_table'] = 'keys';
 |
 |	FALSE
 
-	CREATE TABLE `keys` (
+	CREATE TABLE `rest_keys` (
 	  `id` int(11) NOT NULL AUTO_INCREMENT,
 	  `key` varchar(40) NOT NULL,
 	  `level` int(2) NOT NULL,
@@ -184,10 +184,10 @@ $config['rest_keys_table'] = 'keys';
 	  `ip_addresses` TEXT NULL DEFAULT NULL,
 	  `date_created` int(11) NOT NULL,
 	  PRIMARY KEY (`id`)
-	) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+	) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 |
 */
-$config['rest_enable_keys'] = FALSE;
+$config['rest_enable_keys'] = TRUE;
 
 /*
 |--------------------------------------------------------------------------
