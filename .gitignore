@@ -1,6 +1,15 @@
-/nbproject/
-*~
-/system
-/index.php
-/application/libraries/Format.php
-/application/libraries/REST_Controller.php
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Transient Files #
+###################
+*.log
+*.pyc
+
