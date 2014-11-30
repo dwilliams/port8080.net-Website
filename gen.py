@@ -15,14 +15,19 @@ posts = []
 ### CLASSES ###
 class Post:
     def __init__( self, inputJSON):
+        print "JSON input: %s" % ( inputJSON, )
         # If a JSON string is provided, Generate a post using the provided JSON.
-        # Otherwise create an empty post.
-        self.postID = 0 # Need to figure out the next available ID and set it here.
-        self.postName = "Empty Post"
-        self.postDate = datetime.date.today()
-        self.postTags = [ "A", "B"]
-        self.postBodyPreBreak = "This is pre break."
-        self.postBodyPostBreak = "This is post break."
+        try:
+            tmpInputJSON = json.loads( inputJSON)
+            self.postID = tmpInputJSON['postID']
+            self.postName = tmpInputJSON['postName']
+            self.postDate = datetime.datetime.strptime( tmpInputJSON['postDate'], "%Y-%m-%d").date()
+            self.postTags = tmpInputJSON['postTags']
+            self.postBodyPreBreak = tmpInputJSON['postBody']['preBreak']
+            self.postBodyPostBreak = tmpInputJSON['postBody']['postBreak']
+        except:
+            # Bad JSON
+            print "Error parsing JSON file."
 
     def __repl__( self):
         # Print the JSON output of this object.  Used for debugging purposes.
