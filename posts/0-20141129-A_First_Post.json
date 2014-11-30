@@ -1,0 +1,10 @@
+{ "postID": 0,
+  "postName": "A First Post",
+  "postDate": "2014-11-29",
+  "postTags": [
+    "first",
+    "test"],
+  "postBody": {
+    "preBreak": "This is the body of the first post.",
+    "postBreak": "These paragraphs come after the break.  This could be turned into an array of paragraphs, automatically inserting the paragraph tags as needed."}
+}
