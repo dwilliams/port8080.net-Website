@@ -48,10 +48,17 @@ class Post:
 ### MAIN ###
 def main():
     # List the files in the "posts" directory
-    # For each file, create a post object and add it to the list
+    path = './posts'
+    for postFile in os.listdir( path):
+        postFilePath = os.path.join( path, postFile)
+        if os.path.isfile( postFilePath):
+            # For each file, create a post object and add it to the list
+            with open( postFilePath, 'r') as postData:
+                posts.append( Post( postData.read()))
+
     # DEBUG: Print the list of posts
-    post = Post( "Invalid JSON string")
-    print post
+    for post in posts:
+        print post
 
 if __name__ == "__main__":
     main()
